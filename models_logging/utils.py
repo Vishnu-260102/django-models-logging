@@ -43,10 +43,10 @@ def model_to_dict(instance, action=None):
 def get_changed_data(obj, action=CHANGED):
     d1 = model_to_dict(obj, action)
     if action == DELETED:
-        return {k: {'old': v} for k, v in d1.items()}
+        return {k: {'value existed': v} for k, v in d1.items()}
     d2 = obj.__attrs
     return {
-        k: {'old': d2[k] if action == CHANGED else None, 'new': v} for k, v in d1.items() if v != d2[k]
+        k: {'old value': d2[k] if action == CHANGED else None, 'new value': v} for k, v in d1.items() if v != d2[k]
     }
 
 
