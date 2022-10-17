@@ -1,3 +1,6 @@
+
+##### forked from : *  https://github.com/legion-an/django-models-logging *
+
 # Django Models Logging
 
 This package is for logging every changes in your models in this format:
@@ -51,7 +54,7 @@ LOGGING_USER_MODEL = 'yourapp.Users'
 
 ```python
 LOGGING_MODELS = (
-    'app.ClassName',    # logging only for this model
+    'app.ClassName',    `# logging only for this model`
     'another_app'     # logging of all models in this app
 )
 ```
