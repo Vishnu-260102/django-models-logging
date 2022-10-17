@@ -15,9 +15,9 @@ CAN_CHANGE_CHANGES = getattr(settings, 'LOGGING_CAN_CHANGE_CHANGES', False)
 CHANGES_REVISION_LIMIT = getattr(settings, 'LOGGING_CHANGES_REVISION_LIMIT', 100)
 MERGE_CHANGES = getattr(settings, 'LOGGING_MERGE_CHANGES', True)
 
-ADDED = 'added'
-CHANGED = 'changed'
-DELETED = 'deleted'
+ADDED = 'Created'
+CHANGED = 'Updated'
+DELETED = 'Deleted'
 
 MIDDLEWARES = settings.MIDDLEWARE
 
