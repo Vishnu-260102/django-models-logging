@@ -35,8 +35,19 @@ def _create_changes(object, using, action):
 
     user_id = _local.user.pk if _local.user and _local.user.is_authenticated else None
     content_type_id = ContentType.objects.get_for_model(object._meta.model).pk
-    data = {'db': using, 'object_repr': force_str(object), 'action': action, 'user_id': user_id,
-            'changed_data': changed_data, 'object_id': object.pk, 'content_type_id': content_type_id}
+    ip_address = _local.ip_address
+    user_agent = _local.user_agent
+    data = {
+        'db': using,
+        'object_repr': force_str(object),
+        'action': action,
+        'user_id': user_id,
+        'changed_data': changed_data,
+        'object_id': object.pk,
+        'content_type_id': content_type_id,
+        'ip_address': ip_address,
+        "user_agent": user_agent
+    }
     if MERGE_CHANGES and 'models_logging.middleware.LoggingStackMiddleware' in MIDDLEWARES:
         key = (object.pk, content_type_id)
         old_action = _local.stack_changes.get(key, {}).get('action')
