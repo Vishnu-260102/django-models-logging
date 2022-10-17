@@ -13,6 +13,8 @@ class _Local(local):
         self.user = None
         self.ignore_changes = False
         self.stack_changes = {}
+        self.ip_address =None
+        self.user_agent=None
 
     def ignore(self, sender, instance) -> bool:
         if isinstance(self.ignore_changes, (tuple, list)) and sender in self.ignore_changes:
